@@ -21,14 +21,4 @@ app.get('/products', (req, res) => {
     res.send(products);
 });
 
-app.get('/product/:id', (req, res) => {
-    for(let product of products) {
-        if(product.id === parseInt(req.params.id))
-        {
-            res.send(product);
-        }
-    }
-    res.send('There is no product with this ID');
-});
-
 app.listen(3001);
