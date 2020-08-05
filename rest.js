@@ -61,7 +61,21 @@ app.put('/product/:id', (req, res) => {
         }
     });
     if(flag) {
-        res.send('The is no product with this ID');
+        res.send('There is no product with this ID');
+    }
+    flag = true;
+});
+
+app.delete('/product/:id', (req, res) => {
+    products.forEach((product, index) => {
+        if(product.id === req.params.id) {
+            flag = false;
+            products.splice(index, 1);
+            res.send(req.params.id + ' product deleted');
+        }
+    });
+    if(flag) {
+        res.send('There is no product with this ID');
     }
     flag = true;
 });
