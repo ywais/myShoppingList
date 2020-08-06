@@ -30,9 +30,9 @@ console.log(productData)
 
 const htmlText = 
                 `
-                <div>
-                <table class="border">
-                <h3><strong><u>Shopping List:</u></strong></h3><br>
+                <div class="border">
+                <table>
+                <h3><strong><u>Shopping List:</u></strong></h3>
                 <tr>
                 <th>ID</th>
                 <th>Name</th>
@@ -65,20 +65,21 @@ load.addEventListener("click", () => {loadList();});
 const loadProduct = async (productId) => {
 try {
 const { data } = await axios.get(`http://localhost:3001/products/${productId}`);
-console.log(data)
+console.log('ok')
 makeProduct(data.id, data.name, data.quantity);
 }
 catch (error) {
 console.log(error);
-results.innerHTML = '<div class="center"> This Product does not exist!</div>';
+results.innerHTML = '<div> This Product does not exist!</div>';
 }
 };
 
 function promptFunc() {
 var productInput = prompt('Please enter the ID or name of the product');
 
-if (inputLower != null){
+if (productInput != null){
 var inputLower = productInput.toLowerCase();
+console.log('1ok')
 loadProduct(inputLower);
 }
 }
@@ -93,7 +94,7 @@ const makeProduct = (id, name, quantity) => {
     {
         const htmlText = 
                 `
-                <div class="border center">
+                <div class="border">
                 <h3><u><strong>Product information:</strong></u></h3> 
                 <li><strong>Id:</strong> ${id}</li>
                 <li><strong>Product:</strong> ${name}</li>
@@ -118,7 +119,7 @@ deleteButton.addEventListener("click", () => {deleteProduct(id);});
     }
     else
     {
-        results.innerHTML = '<div class="center"> This Product does not exist!</div>';
+        results.innerHTML = '<div> This Product does not exist!</div>';
     }
 }
 
@@ -134,7 +135,7 @@ await axios.post(`http://localhost:3001/products/`, {
   .then(function (response) {
     if (response.data =='The inserted ID already is in use' || response.data =='The inserted name is already in use'){
     console.log(response.data);
-   results.innerHTML = `<div class="center">${response.data}<div>`;
+   results.innerHTML = `<div>${response.data}<div>`;
     } 
     else
     {
@@ -160,7 +161,7 @@ addProduct(id, name, quantity);
 }
 else
 {
-  results.innerHTML = '<div class="center">Either one of the properties you inserted is empty or invalid.</div>'
+  results.innerHTML = '<div>Either one of the properties you inserted is empty or invalid.</div>'
 }
 }
 
@@ -170,7 +171,7 @@ const newProduct = (id, name, quantity) => {
 
         const htmlText = 
                 `
-                 <div class="border center">
+                 <div class="border">
                  <ul><u><h3><strong>Product added:</strong></u></h3> 
                  <li><strong>Id:</strong> ${id}</li>
                  <li><strong>Product:</strong> ${name}</li>
@@ -222,7 +223,7 @@ function updateDiv(id, name, quantity){
 
         const htmlText = 
                 `
-                 <div class="border center"><ul> <u><h3><strong>Product updated:</strong></h3></u>
+                 <div class="border"><ul> <u><h3><strong>Product updated:</strong></h3></u>
                  <li><strong>Id:</strong> ${id}</li>
                  <li><strong>Product:</strong> ${name}</li>
                  <li><strong>Quantity:</strong> ${quantity}</li>
@@ -257,7 +258,7 @@ updateProduct(id, nameLower, quantityNumber);
 }
 else
 {
-results.innerHTML = '<div class="center">Either one of the properties you inserted is empty or invalid</div>'
+results.innerHTML = '<div>Either one of the properties you inserted is empty or invalid</div>'
 }
 }
 
