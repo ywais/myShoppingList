@@ -7,12 +7,12 @@ app.use(express.json());
 let products = [
     {
         id: 'm1',
-        name: 'Milk',
-        quantity: 2
+        name: 'milk',
+        quantity: 23
     },
     {
         id: 'eg',
-        name: 'Eggs',
+        name: 'eggs',
         quantity: 12
     }
 ];
@@ -21,24 +21,34 @@ app.get('/products', (req, res) => {
     res.send(products);
 });
 
-app.get('/product/:id', (req, res) => {
+app.get('/products/:id', (req, res) => {
     for(let product of products) {
         if(product.id === req.params.id) {
             flag = false;
             res.send(product);
         }
+                if(product.name === req.params.id) {
+            flag = false;
+            res.send(product);
+        }
     }
     if(flag) {
-        res.send('There is no product with this ID');
+        res.send('There is no product with this ID or name');
     }
     flag = true;
 });
 
-app.post('/product', (req, res) => {
+
+
+app.post('/products', (req, res) => {
     for(let product of products) {
         if(product.id === req.body.id) {
             flag = false;
-            res.send('The inserted ID is in use');
+            res.send('The inserted ID already is in use');
+        }
+                if(product.name === req.body.name) {
+            flag = false;
+            res.send('The inserted name is already in use');
         }
     }
     if(flag) {
@@ -48,7 +58,7 @@ app.post('/product', (req, res) => {
     flag = true;
 });
 
-app.put('/product/:id', (req, res) => {
+app.put('/products/:id', (req, res) => {
     products.forEach((product, index) => {
         if(product.id === req.params.id) {
             flag = false;
@@ -66,7 +76,7 @@ app.put('/product/:id', (req, res) => {
     flag = true;
 });
 
-app.delete('/product/:id', (req, res) => {
+app.delete('/products/:id', (req, res) => {
     products.forEach((product, index) => {
         if(product.id === req.params.id) {
             flag = false;

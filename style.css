@@ -1,0 +1,59 @@
+html{
+  font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
+li{
+       list-style-type: none;
+       margin-left: 20%;
+}
+
+
+table{
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  text-align: left;
+}
+
+section{
+  margin-left:40%;
+    margin-right:20%;
+
+
+}
+
+#results{
+
+  margin-bottom:30px;
+}
+
+.id{
+  color:gray;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.id:hover{
+color:black
+}
+
+.border{
+  border: dashed black 2px;
+}
+
+h3 {
+  text-align: center;
+}
+
+.center{
+width: 400px;
+word-wrap:break-word;
+    margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+#updateButton{
+         margin-left: 30%;
+}
+

@@ -1,0 +1,36 @@
+
+<html>
+  <head>
+    <title>Window resize example</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <section>
+
+<br>
+    <div class="data">
+     <h1>My shopping list</h1><br>
+    <span>Product ID:</span>
+   <input type="text" name="textInput" id="textInputId" placeholder="add some tasks..."><br>
+   <span>Product name:</span>
+   <input type="text" name="textInput" id="textInputName" placeholder="add some tasks..."><br>
+   <span>Product quantity:</span>
+   <input type="text" name="textInput" id="textInputQuantity" placeholder="add some tasks..."><br>
+   <button id="add">Add</button>
+</section>
+
+
+<br><br>
+<div id="results"></div>
+<br>
+
+<section>
+<button id="search">Load product</button><button id="load">Load list</button>
+</section>
+
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script type="moudle" src="rest.js"> </script>
+    <script src="main.js"> </script>
+  </body>
+</html>
