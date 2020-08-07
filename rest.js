@@ -1,8 +1,6 @@
-const express = require('express');
+import express from 'express';
 const app = express();
 let flag = true;
-
-app.use(express.json());
 
 let products = [
     {

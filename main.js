@@ -10,7 +10,6 @@ const add = document.getElementById('add');
 const loadList = async () => {
 try {
 const { data } = await axios.get(`http://localhost:3001/products`);
-console.log('ok');
 makeDiv(data);
 }
 catch (error) {
@@ -24,8 +23,6 @@ const makeDiv = (product) => {
 var dataArray = [];
 product.forEach(e => {dataArray.push( '<tr><td class="id">' + e.id +'</td><td class="id">'+ e.name +'</td><td>'+ e.quantity + '</td></tr>');});
 const productData = dataArray.join('');
-
-console.log(productData)
 
 
 const htmlText = 
@@ -65,7 +62,6 @@ load.addEventListener("click", () => {loadList();});
 const loadProduct = async (productId) => {
 try {
 const { data } = await axios.get(`http://localhost:3001/products/${productId}`);
-console.log('ok')
 makeProduct(data.id, data.name, data.quantity);
 }
 catch (error) {
@@ -79,7 +75,6 @@ var productInput = prompt('Please enter the ID or name of the product');
 
 if (productInput != null){
 var inputLower = productInput.toLowerCase();
-console.log('1ok')
 loadProduct(inputLower);
 }
 }
@@ -209,7 +204,6 @@ await axios.put(`http://localhost:3001/products/${id}`, {
     quantity: quantity
   })
   .then(function (response) {
-    console.log('ok');
     updateDiv(id, name, quantity)
     console.log(response);
   })
@@ -250,7 +244,7 @@ var productQuantity = prompt('Please enter new quantity', quantity);
 }
 
 if (productQuantity == null){
-console.log('candeled')
+console.log('canceled')
 }
 else if (/^[A-Za-z0-9]+|[\b]+$/.test(productName) && /^[0-9]+$/.test(productQuantity)){
 var nameLower = productName.toLowerCase();
