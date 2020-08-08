@@ -1,6 +1,8 @@
-import express from 'express';
+var express = require('express');
 const app = express();
 let flag = true;
+
+app.use(express.json());
 
 let products = [
     {
@@ -60,12 +62,8 @@ app.put('/products/:id', (req, res) => {
     products.forEach((product, index) => {
         if(product.id === req.params.id) {
             flag = false;
-            if(req.params.id === req.body.id) {
                 products[index] = req.body;
                 res.send(products[index]);
-            } else {
-                res.send('Do not change the product ID!');
-            }
         }
     });
     if(flag) {

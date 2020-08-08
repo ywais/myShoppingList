@@ -7,6 +7,8 @@ const add = document.getElementById('add');
 
 // --------------------------------------------- get list request
 
+
+
 const loadList = async () => {
 try {
 const { data } = await axios.get(`http://localhost:3001/products`);
@@ -248,7 +250,7 @@ console.log('canceled')
 }
 else if (/^[A-Za-z0-9]+|[\b]+$/.test(productName) && /^[0-9]+$/.test(productQuantity)){
 var nameLower = productName.toLowerCase();
-updateProduct(id, nameLower, quantityNumber);
+updateProduct(id, nameLower, productQuantity);
 }
 else
 {
